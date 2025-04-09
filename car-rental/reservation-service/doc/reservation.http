@@ -1,0 +1,21 @@
+### Listing 4.11 The JSON request to make a reservation for the car with ID 1
+
+POST http://localhost:8081/reservation
+accept: application/json
+Content-Type: application/json
+
+{
+  "carId": 1,
+  "startDay": "2024-01-01",
+  "endDay": "2024-01-05"
+}
+
+### Listing 4.12 The JSON response acknowledging the reservation
+
+GET http://localhost:8081/reservation/availability?endDate=2024-01-04&startDate=2024-01-02
+accept: application/json
+
+###
+
+
+
