@@ -15,7 +15,33 @@ Content-Type: application/json
 GET http://localhost:8081/reservation/availability?endDate=2024-01-04&startDate=2024-01-02
 accept: application/json
 
-###
+### Listing 4.21 A GraphQL query for all fields of all cars in the fleet
+GRAPHQL http://localhost:8083/graphql
 
+query {
+    cars {
+        id
+        licensePlateNumber
+        model
+        manufacturer
+    }
+}
 
+### Listing 4.23 The register mutation for adding new cars into the fleet
+GRAPHQL http://localhost:8083/graphql
 
+mutation {
+    register(car: {
+        licensePlateNumber: "O123"
+        model: "406"
+        manufacturer: "Peugeot"
+    }) {
+        licensePlateNumber
+        model
+        manufacturer
+        id
+    }
+}
+
+### Listing 4.25 The GraphQL schema of the Inventory service
+GET http://localhost:8083/graphql/schema.graphql
