@@ -54,18 +54,12 @@ Content-Type: application/json
 
 ### Bidirectional streaming call to add multiple cars
 GRPC localhost:9000/inventory.InventoryService/add
-[
-  {
-    "licensePlateNumber": "ABC123",
-    "manufacturer": "Toyota",
-    "model": "Corolla"
-  },
-  {
-    "licensePlateNumber": "XYZ789",
-    "manufacturer": "Honda",
-    "model": "Civic"
-  }
-]
+
+{
+  "licensePlateNumber": "ABC123",
+  "manufacturer": "Toyota",
+  "model": "Corolla"
+}
 
 
 
