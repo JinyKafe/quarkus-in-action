@@ -45,3 +45,9 @@ mutation {
 
 ### Listing 4.25 The GraphQL schema of the Inventory service
 GET http://localhost:8083/graphql/schema.graphql
+
+### Listing 4.28 Calling the reservation availability endpoint
+
+GET http://localhost:8081/reservation/availability
+accept: application/json
+Content-Type: application/json
