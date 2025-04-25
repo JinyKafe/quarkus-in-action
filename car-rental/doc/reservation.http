@@ -61,5 +61,6 @@ GRPC localhost:9000/inventory.InventoryService/add
   "model": "Corolla"
 }
 
-
+### 6.1.1 Creating a simple HTML page
+GET http://localhost:8080/whoami
 
