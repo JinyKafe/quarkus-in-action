@@ -64,3 +64,5 @@ GRPC localhost:9000/inventory.InventoryService/add
 ### 6.1.1 Creating a simple HTML page
 GET http://localhost:8080/whoami
 
+### 7.1.2 Getting all reservations
+GET http://localhost:8081/reservation/all
