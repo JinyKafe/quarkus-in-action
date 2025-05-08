@@ -66,3 +66,27 @@ GET http://localhost:8080/whoami
 
 ### 7.1.2 Getting all reservations
 GET http://localhost:8081/reservation/all
+
+### Listing 7.31 Verification of the Rental service functionality
+POST http://localhost:8082/rental/start/user1/1
+accept: application/json
+Content-Type: application/json
+
+
+
+###
+PUT http://localhost:8082/rental/end/user1/1
+accept: application/json
+Content-Type: application/json
+
+
+###
+GET http://localhost:8082/rental
+accept: application/json
+Content-Type: application/json
+
+
+###
+GET http://localhost:8082/rental/active
+accept: application/json
+Content-Type: application/json
