@@ -902,7 +902,6 @@ rendered</y:NodeLabel>
           </data>
         </node>
         <node id="n1::n17">
-          <data key="d5"/>
           <data key="d6">
             <y:GenericNode configuration="com.yworks.bpmn.Event.withShadow">
               <y:Geometry height="30.0" width="30.0" x="6069.117681703936" y="-3737.6492063492065"/>
@@ -911,8 +910,8 @@ rendered</y:NodeLabel>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="36.688228607177734" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="101.3927001953125" x="-35.69635009765625" xml:space="preserve" y="-40.688228607177734">Register through
 GRAPHQL DEV UI<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.5" nodeRatioX="0.0" nodeRatioY="-0.5" offsetX="0.0" offsetY="-4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
               <y:StyleProperties>
-                <y:Property class="com.yworks.yfiles.bpmn.view.EventCharEnum" name="com.yworks.bpmn.characteristic" value="EVENT_CHARACTERISTIC_START"/>
                 <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.line.color" value="#000000"/>
+                <y:Property class="com.yworks.yfiles.bpmn.view.EventCharEnum" name="com.yworks.bpmn.characteristic" value="EVENT_CHARACTERISTIC_START"/>
                 <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.fill2" value="#d4d4d4cc"/>
                 <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.fill" value="#ffffffe6"/>
                 <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="EVENT_TYPE_PLAIN"/>
@@ -993,10 +992,10 @@ GRAPHQL DEV UI<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelMode
             <y:ProxyAutoBoundsNode>
               <y:Realizers active="0">
                 <y:GenericGroupNode configuration="com.yworks.bpmn.Artifact.withShadow">
-                  <y:Geometry height="2131.964285714286" width="1148.4294562592677" x="6119.117681703936" y="-2131.964285714286"/>
+                  <y:Geometry height="2131.964285714286" width="1133.0333380952052" x="6134.513799867998" y="-2131.964285714286"/>
                   <y:Fill hasColor="false" transparent="false"/>
                   <y:BorderStyle color="#000000" type="dashed_dotted" width="1.0"/>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.344114303588867" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="80.82453918457031" x="533.8024585373487" xml:space="preserve" y="2107.620171410697">Car Inventory<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="-4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.344114303588867" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="80.82453918457031" x="526.1043994553174" xml:space="preserve" y="2107.620171410697">Car Inventory<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="-4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
                   <y:StyleProperties>
                     <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.line.color" value="#000000"/>
                     <y:Property class="java.lang.Boolean" name="com.yworks.bpmn.FillColorDependsOnType" value="false"/>
@@ -1100,12 +1099,42 @@ model: String<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mod
               </data>
             </node>
             <node id="n2::n0::n4">
+              <data key="d5" xml:space="preserve"><![CDATA[-->
+query {
+  cars {
+    id
+    licensePlateNumber
+    manufacturer
+    model
+  }
+}
+
+<--
+{
+  "data": {
+    "cars": [
+      {
+        "id": 1,
+        "licensePlateNumber": "ABC123",
+        "manufacturer": "Mazda",
+        "model": "6"
+      },
+      {
+        "id": 2,
+        "licensePlateNumber": "XYZ987",
+        "manufacturer": "Ford",
+        "model": "Mustang"
+      }
+    ]
+  }
+}
+]]></data>
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.bpmn.Conversation.withShadow">
                   <y:Geometry height="45.0" width="45.0" x="6255.9986936668265" y="-1618.4257936507936"/>
                   <y:Fill color="#FFFFFFE6" color2="#33CCCC" transparent="false"/>
                   <y:BorderStyle color="#476228" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="53.0323429107666" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="288.76202392578125" x="-121.88101196289062" xml:space="preserve" y="49.0">--&gt; POST /graphql @Query "cars" (application/json)
+                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="53.0323429107666" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="193.73333740234375" x="-74.36666870117188" xml:space="preserve" y="49.0">--&gt; POST /graphql query { cars { ...
 
 &lt;-- HTTP 200 OK (applicatin/json)<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
                   <y:StyleProperties>
@@ -1119,7 +1148,6 @@ model: String<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mod
               </data>
             </node>
             <node id="n2::n0::n5">
-              <data key="d5"/>
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.bpmn.Activity.withShadow">
                   <y:Geometry height="63.0323429107666" width="133.17286682128906" x="6526.942259035479" y="-1372.3606158998277"/>
@@ -1129,8 +1157,8 @@ model: String<y:LabelModel><y:ErdAttributesNodeLabelModel/></y:LabelModel><y:Mod
 
 register(Car):Car<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
                   <y:StyleProperties>
-                    <y:Property class="com.yworks.yfiles.bpmn.view.TaskTypeEnum" name="com.yworks.bpmn.taskType" value="TASK_TYPE_ABSTRACT"/>
                     <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.line.color" value="#000000"/>
+                    <y:Property class="com.yworks.yfiles.bpmn.view.TaskTypeEnum" name="com.yworks.bpmn.taskType" value="TASK_TYPE_ABSTRACT"/>
                     <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.fill2" value="#d4d4d4cc"/>
                     <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.fill" value="#ffffffe6"/>
                     <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="ACTIVITY_TYPE"/>
@@ -1140,7 +1168,6 @@ register(Car):Car<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelM
               </data>
             </node>
             <node id="n2::n0::n6">
-              <data key="d5"/>
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
                   <y:Geometry height="55.0" width="35.0" x="6934.510151837964" y="-556.8678571428571"/>
@@ -1149,44 +1176,53 @@ register(Car):Car<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelM
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="20.344114303588867" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="51.964324951171875" x="-8.482162475585938" xml:space="preserve" y="-24.344114303588867">add(Car)<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.5" nodeRatioX="0.0" nodeRatioY="-0.5" offsetX="0.0" offsetY="-4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
                   <y:StyleProperties>
                     <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.line.color" value="#000000"/>
+                    <y:Property class="com.yworks.yfiles.bpmn.view.DataObjectTypeEnum" name="com.yworks.bpmn.dataObjectType" value="DATA_OBJECT_TYPE_OUTPUT"/>
                     <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.fill2" value="#d4d4d4cc"/>
                     <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.fill" value="#ffffffe6"/>
                     <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="ARTIFACT_TYPE_DATA_OBJECT"/>
-                    <y:Property class="com.yworks.yfiles.bpmn.view.DataObjectTypeEnum" name="com.yworks.bpmn.dataObjectType" value="DATA_OBJECT_TYPE_OUTPUT"/>
                   </y:StyleProperties>
                 </y:GenericNode>
               </data>
             </node>
             <node id="n2::n0::n7">
-              <data key="d5"/>
+              <data key="d5" xml:space="preserve"><![CDATA[-->
+mutation {
+  register(car: {
+    licensePlateNumber: "GRAPHQL001"
+    model: "A6"
+    manufacturer: "Audi"
+  }) {
+    licensePlateNumber
+    model
+    manufacturer
+    id
+  }
+}
+
+<--
+{
+  "data": {
+    "register": {
+      "licensePlateNumber": "GRAPHQL001",
+      "model": "A6",
+      "manufacturer": "Audi",
+      "id": 3
+    }
+  }
+}
+]]></data>
               <data key="d6">
                 <y:GenericNode configuration="com.yworks.bpmn.Conversation.withShadow">
                   <y:Geometry height="45.0" width="45.0" x="6255.9986936668265" y="-2101.964285714286"/>
                   <y:Fill color="#FF99CC" color2="#D4D4D4CC" transparent="false"/>
                   <y:BorderStyle color="#476228" type="line" width="1.0"/>
-                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="314.5381717681885" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="243.59371948242188" x="-99.29685974121094" xml:space="preserve" y="49.0">--&gt; POST /graphql
-mutation {
-  register(
-    car: {licensePlateNumber: "123LAMBO", 
-	model: "Huracan", 
-	manufacturer: "Lamborghini"	}
-  ) {
-    id
-  }
-}
+                  <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="53.0323429107666" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="257.96978759765625" x="-106.48489379882812" xml:space="preserve" y="49.0">--&gt; POST /graphql mutation { register(car: { ...
 
-&lt;-- HTTP 200 OK
-{
-  "data": {
-    "register": {
-      "id": 1
-    }
-  }
-}<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+&lt;-- HTTP 200 OK (application/json)<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
                   <y:StyleProperties>
                     <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.line.color" value="#000000"/>
-                    <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.fill2" value="#d4d4d4cc"/>
                     <y:Property class="com.yworks.yfiles.bpmn.view.ConversationTypeEnum" name="com.yworks.bpmn.conversationType" value="CONVERSATION_TYPE_COMMUNICATION"/>
+                    <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.fill2" value="#d4d4d4cc"/>
                     <y:Property class="java.awt.Color" name="com.yworks.bpmn.icon.fill" value="#ffffffe6"/>
                     <y:Property class="com.yworks.yfiles.bpmn.view.BPMNTypeEnum" name="com.yworks.bpmn.type" value="CONVERSATION_TYPE"/>
                   </y:StyleProperties>
@@ -2779,7 +2815,6 @@ header: "HX-Trigger-After-Swap" = "update-available-cars-list"<y:LabelModel><y:S
       </data>
     </edge>
     <edge id="n2::n0::e3" source="n2::n0::n7" target="n2::n0::n5">
-      <data key="d9"/>
       <data key="d10">
         <y:GenericEdge configuration="com.yworks.bpmn.Connection">
           <y:Path sx="22.5" sy="-0.0" tx="-66.58643341064453" ty="-0.0">
@@ -2804,7 +2839,6 @@ header: "HX-Trigger-After-Swap" = "update-available-cars-list"<y:LabelModel><y:S
       </data>
     </edge>
     <edge id="n2::n0::e4" source="n2::n0::n4" target="n2::n0::n0">
-      <data key="d9"/>
       <data key="d10">
         <y:GenericEdge configuration="com.yworks.bpmn.Connection">
           <y:Path sx="22.5" sy="-0.0" tx="-145.64898681640625" ty="-0.0">
@@ -2829,7 +2863,6 @@ header: "HX-Trigger-After-Swap" = "update-available-cars-list"<y:LabelModel><y:S
       </data>
     </edge>
     <edge id="n2::e1" source="n2::n3::n4" target="n2::n0::n4">
-      <data key="d9"/>
       <data key="d10">
         <y:GenericEdge configuration="com.yworks.bpmn.Connection">
           <y:Path sx="60.537312700487746" sy="-80.5485143661499" tx="0.0" ty="22.5">
@@ -2850,7 +2883,6 @@ header: "HX-Trigger-After-Swap" = "update-available-cars-list"<y:LabelModel><y:S
       </data>
     </edge>
     <edge id="n2::e2" source="n2::n3::n3" target="n2::n1::n1">
-      <data key="d9"/>
       <data key="d10">
         <y:GenericEdge configuration="com.yworks.bpmn.Connection">
           <y:Path sx="99.73165893554688" sy="-88.72057151794434" tx="0.0" ty="22.5">
@@ -2869,7 +2901,6 @@ header: "HX-Trigger-After-Swap" = "update-available-cars-list"<y:LabelModel><y:S
       </data>
     </edge>
     <edge id="n2::n1::e0" source="n2::n1::n1" target="n2::n1::n0">
-      <data key="d9"/>
       <data key="d10">
         <y:GenericEdge configuration="com.yworks.bpmn.Connection">
           <y:Path sx="22.5" sy="-0.0" tx="-127.61286926269531" ty="-28.0161714553833">
@@ -2894,7 +2925,6 @@ header: "HX-Trigger-After-Swap" = "update-available-cars-list"<y:LabelModel><y:S
       </data>
     </edge>
     <edge id="n2::n0::e5" source="n2::n0::n6" target="n2::n0::n1">
-      <data key="d9"/>
       <data key="d10">
         <y:GenericEdge configuration="com.yworks.bpmn.Connection">
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -2916,7 +2946,6 @@ header: "HX-Trigger-After-Swap" = "update-available-cars-list"<y:LabelModel><y:S
       </data>
     </edge>
     <edge id="n2::n0::e6" source="n2::n0::n5" target="n2::n0::n6">
-      <data key="d9"/>
       <data key="d10">
         <y:GenericEdge configuration="com.yworks.bpmn.Connection">
           <y:Path sx="66.58643341064453" sy="-0.0" tx="0.0" ty="0.0">
@@ -2941,7 +2970,6 @@ header: "HX-Trigger-After-Swap" = "update-available-cars-list"<y:LabelModel><y:S
       </data>
     </edge>
     <edge id="e17" source="n1::n17" target="n2::n0::n7">
-      <data key="d9"/>
       <data key="d10">
         <y:GenericEdge configuration="com.yworks.bpmn.Connection">
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="-22.5">
