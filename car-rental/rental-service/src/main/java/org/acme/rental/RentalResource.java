@@ -2,7 +2,11 @@ package org.acme.rental;
 
 import io.quarkus.logging.Log;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.NotFoundException;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
 import org.acme.rental.billing.InvoiceAdjust;
 import org.acme.rental.entity.Rental;
 import org.acme.rental.reservation.Reservation;
@@ -31,8 +35,10 @@ public class RentalResource {
 
     @Path("/start/{userId}/{reservationId}")
     @POST
-    public Rental start(String userId, Long reservationId) {
-        Log.infof("Starting rental for %s with reservation %s", userId, reservationId);
+    public Rental start(String userId,
+                        Long reservationId) {
+        Log.infof("Starting rental for %s with reservation %s",
+            userId, reservationId);
 
         Rental rental = new Rental();
         rental.userId = userId;
@@ -48,25 +54,37 @@ public class RentalResource {
     @PUT
     @Path("/end/{userId}/{reservationId}")
     public Rental end(String userId, Long reservationId) {
-        Log.infof("Ending rental for %s with reservation %s", userId, reservationId);
-        Rental rental = Rental.findByUserAndReservationIdsOptional(userId, reservationId).orElseThrow(() -> new NotFoundException("Rental not found"));
-        Reservation reservation = reservationClient.getById(reservationId);
+        Log.infof("Ending rental for %s with reservation %s",
+            userId, reservationId);
+
+        Rental rental = Rental
+            .findByUserAndReservationIdsOptional(userId, reservationId)
+            .orElseThrow(() -> new NotFoundException("Rental not found"));
+
+        Reservation reservation = reservationClient
+            .getById(reservationId);
+
         LocalDate today = LocalDate.now();
-        // Check if the rental is already ended
         if (!reservation.endDay.isEqual(today)) {
-            Log.infof("Adjusting price for rental %s. Original reservation end day was %s.", rental, reservation.endDay);
-            // If the rental is ended before the reservation end day, we need to adjust the price
-            adjustmentEmitter.send(new InvoiceAdjust(rental.id.toString(), userId, today, computePrice(reservation.endDay, today)));
+            Log.infof("Adjusting price for rental %s. Original " +
+                "reservation end day was %s.", rental, reservation.endDay);
+            adjustmentEmitter.send(new InvoiceAdjust(
+                    rental.id.toString(), userId, today,
+                computePrice(reservation.endDay, today)));
         }
-        // Update the rental to mark it as ended
+
         rental.endDate = today;
         rental.active = false;
-        rental.update(); // Persist the changes
+        rental.update();
         return rental;
     }
 
     private double computePrice(LocalDate endDate, LocalDate today) {
-        return endDate.isBefore(today) ? ChronoUnit.DAYS.between(endDate, today) * STANDARD_PRICE_FOR_PROLONGED_DAY : ChronoUnit.DAYS.between(today, endDate) * STANDARD_REFUND_RATE_PER_DAY;
+        return endDate.isBefore(today) ?
+            ChronoUnit.DAYS.between(endDate, today)
+                * STANDARD_PRICE_FOR_PROLONGED_DAY :
+            ChronoUnit.DAYS.between(today, endDate)
+                * STANDARD_REFUND_RATE_PER_DAY;
     }
 
     @GET
