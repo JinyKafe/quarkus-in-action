@@ -6,8 +6,8 @@ Content-Type: application/json
 
 {
   "carId": 1,
-  "startDay": "2025-04-11",
-  "endDay": "2025-04-16"
+  "startDay": "2025-05-14",
+  "endDay": "2025-05-15"
 }
 
 ### Listing 4.12 The JSON response acknowledging the reservation
@@ -68,14 +68,14 @@ GET http://localhost:8080/whoami
 GET http://localhost:8081/reservation/all
 
 ### Listing 7.31 Verification of the Rental service functionality
-POST http://localhost:8082/rental/start/user1/1
+POST http://localhost:8082/rental/start/bob/2
 accept: application/json
 Content-Type: application/json
 
 
 
 ###
-PUT http://localhost:8082/rental/end/user1/1
+PUT http://localhost:8082/rental/end/bob/2
 accept: application/json
 Content-Type: application/json
 
